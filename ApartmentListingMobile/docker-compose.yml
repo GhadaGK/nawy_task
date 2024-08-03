@@ -1,0 +1,11 @@
+version: '3.8'  # Specifies the version of the Docker Compose file format to use.
+
+services:  # Defines the services to be run in the Docker Compose setup.
+  mobile:  # Defines the service for the React Native mobile application.
+    build:  # Configuration for building the Docker image for this service.
+      context: .  # Sets the build context to the current directory, which contains the Dockerfile and application code.
+    ports:  # Maps ports between the host and the container.
+      - '8081:8081'  # Maps port 8081 on the host to port 8081 in the container, used by the Metro Bundler.
+    depends_on:  # Specifies dependencies between services to ensure the order of startup.
+      - backend  # Indicates that the mobile service depends on the backend service. Docker Compose will start the backend service before the mobile service.
+

@@ -1,0 +1,36 @@
+version: '3.8'  # Specifies the version of Docker Compose syntax to use
+
+services:  # Defines the services (containers) that make up the application
+
+  mongo:  # Defines the MongoDB service
+    image: mongo  # Specifies the Docker image to use for MongoDB
+    ports:
+      - '27017:27017'  # Maps port 27017 on the host to port 27017 on the container
+
+  backend:  # Defines the backend service
+    build:
+      context: ./apartment-listing-backend  # Specifies the path to the backend Dockerfile and build context
+    ports:
+      - '3000:3000'  # Maps port 3000 on the host to port 3000 on the container
+    depends_on:
+      - mongo  # Ensures the backend service starts only after the mongo service is up
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/apartment-listing  # Sets the environment variable for MongoDB connection URI
+
+  frontend:  # Defines the frontend service
+    build:
+      context: ./apartment-listing-frontend  # Specifies the path to the frontend Dockerfile and build context
+    ports:
+      - '3001:3000'  # Maps port 3001 on the host to port 3000 on the container
+    depends_on:
+      - backend  # Ensures the frontend service starts only after the backend service is up
+
+  mobile:  # Defines the mobile service
+    build:
+      context: ./ApartmentListingMobile  # Specifies the path to the mobile Dockerfile and build context
+    ports:
+      - '8081:8081'  # Maps port 8081 on the host to port 8081 on the container
+    depends_on:
+      - backend  # Ensures the mobile service starts only after the backend service is up
+
+

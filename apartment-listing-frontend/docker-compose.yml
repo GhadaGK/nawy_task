@@ -1,0 +1,12 @@
+version: '3.8'  # Specifies the Docker Compose file format version
+
+services:  # Defines the services that are part of this Docker Compose configuration
+  frontend:  # Name of the service (frontend application)
+    build:  # Build configuration for the frontend service
+      context: .  # Specifies the directory containing the Dockerfile and application code
+    ports:  # Port mappings between the host and container
+      - '3001:3000'  # Maps port 3001 on the host to port 3000 in the container
+    depends_on:  # Specifies the service dependencies
+      - backend  # Ensures that the backend service is started before the frontend service
+
+
