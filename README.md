@@ -4,6 +4,7 @@ This document provides a detailed overview of the Apartment Listing Application,
 Project Structure
 
 nawy_task (project-root)/
+
 ├── apartment-listing-backend/
 │   ├── src/
 │   │   ├── index.ts
