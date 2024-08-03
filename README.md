@@ -137,6 +137,7 @@ COPY . .
 EXPOSE 8081
 
 CMD ["npx", "react-native", "start"]
+
 3. Screens
 src/screens/ApartmentListScreen.tsx
 Description: Displays a list of apartments and navigates to the detail screen on item press.
