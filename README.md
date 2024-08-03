@@ -145,7 +145,9 @@ Data Source: Fetches data from http://backend:3000/api/apartments.
 src/screens/ApartmentDetailScreen.tsx
 Description: Displays details of a specific apartment.
 Data Source: Fetches data from http://backend:3000/api/apartments/:id.
+
 Running the Application
+
 1. Build and Start with Docker Compose
 From the root of nawy_task project directory, execute the following command:
 sudo docker-compose up --build
