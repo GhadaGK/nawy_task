@@ -58,7 +58,7 @@ docker-compose.yml: Docker Compose configuration file
 package.json: Project dependencies and scripts
 tsconfig.json: TypeScript configuration file
 2. Dockerfile
-FROM node:14
+FROM node:18
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -123,8 +123,9 @@ App.tsx: Main entry point of the application
 Dockerfile: Docker configuration file
 package.json: Project dependencies and scripts
 tsconfig.json: TypeScript configuration file
-2. Dockerfile
-FROM node:14
+
+3. Dockerfile
+FROM node:18
 
 WORKDIR /app
 
@@ -147,7 +148,6 @@ Description: Displays details of a specific apartment.
 Data Source: Fetches data from http://backend:3000/api/apartments/:id.
 
 Running the Application
-
 1. Build and Start with Docker Compose
 From the root of nawy_task project directory, execute the following command:
 sudo docker-compose up --build
